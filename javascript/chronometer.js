@@ -5,12 +5,11 @@ class Chronometer {
   }
 
   start(callback) {
-    if (callback) callback();
-    else {
-      this.intervalId = setInterval(() => {
-        this.currentTime += 1;
-      }, 1000);
-    }
+    this.intervalId = setInterval(() => {
+      //!!If there is a callback, execute it, it it isn't the code will ignore the execution
+      if (callback) callback();
+      this.currentTime += 1;
+    }, 1000);
   }
 
   getMinutes() {
